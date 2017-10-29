@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hello world</title>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="test1"></div>
+  <div id="test2"></div>
+  <div id="welcome"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+  <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+  <script type="text/babel">
+    var app = <h1>Hello 111 world</h1>
+    var mountComponent = document.querySelector('#app');
+    ReactDOM.render(app, mountComponent);
+//  ReactDOM.render(<what>, <where>)
+
+
+//  Create component method #1
+//  Test1 ES6 class will extend the React.Component class
+    class Test1 extends React.Component {
+      render() {
+        return <h1>Hello from Test1 component</h1>
+      }
+    }
+
+//  Create component method #2
+//  React.createClass() function
+    var Test2 = React.createClass({
+      render: function() {
+        return <h1>Hello from Test2 component</h1>
+      }
+    });
+
+//  Create component method #3
+//  This is "functional" component, because they are literally JavaScript functions.
+    function Welcome(props) {
+      return <h1>Hello, {props.name}</h1>;
+    }
+
+
+//  Always start component names with a capital letter!!!
+    ReactDOM.render(<Test1 />, document.querySelector('#test1'));
+    ReactDOM.render(<Test2 />, document.querySelector('#test2'));
+    ReactDOM.render(<Welcome name="Arnold" />, document.getElementById('welcome'));
+
+  </script>
+</body>
+</html>
